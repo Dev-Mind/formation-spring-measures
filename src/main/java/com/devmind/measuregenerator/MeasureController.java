@@ -43,6 +43,9 @@ public class MeasureController {
         // We compute the step number between start and end instants
         Duration duration = Duration.between(start, end);
         Long nbOfSteps = (duration.getSeconds() / step) + 1;
+        if(nbOfSteps == 1){
+            throw new MeasureException("end instant has to be higher to have more than one step");
+        }
         int nbPeak = getNbPeak(nbOfSteps.intValue());
 
         // We generate a matrix with one value for each steps
@@ -71,7 +74,7 @@ public class MeasureController {
 
     public int getNbPeak(int nbOfSteps) {
         Random random = new Random();
-        return nbOfSteps / random.ints(1, nbOfSteps / 3).findFirst().orElse(1);
+        return nbOfSteps / random.ints(0, nbOfSteps / 3).findFirst().orElse(1);
     }
 
     private static class Power {
