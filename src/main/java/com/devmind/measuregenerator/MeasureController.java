@@ -21,6 +21,7 @@ import static java.util.Comparator.comparing;
 @RequestMapping("/measures")
 public class MeasureController {
 
+
     @GetMapping
     public ResponseEntity<List<MeasureDTO>> computeMeasures(@RequestParam Instant start,
                                                             @RequestParam Instant end,
@@ -74,7 +75,8 @@ public class MeasureController {
 
     public int getNbPeak(int nbOfSteps) {
         Random random = new Random();
-        return nbOfSteps / random.ints(0, nbOfSteps / 3).findFirst().orElse(1);
+        int divisor = nbOfSteps / 3;
+        return nbOfSteps / random.ints(0, divisor == 0 ? 1 : divisor).findFirst().orElse(1);
     }
 
     private static class Power {

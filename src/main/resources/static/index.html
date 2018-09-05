@@ -1,0 +1,51 @@
+<html>
+<head>
+    <title>Mesures</title>
+    <link rel="icon" href="https://dev-mind.fr/favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<body>
+<div class="jumbotron">
+    <h1 class="text-center"><img src="https://www.dev-mind.fr/img/logo/logo_long.svg" width="40%"></h1>
+    <div class="px-0">
+        <p class="lead text-center">Une application pour charger des mesures</p>
+    </div>
+</div>
+<div class="container">
+    Par défaut cette application se lance sur le port <b>8090</b>. Vous devez passer les arguments suivants au service
+    REST
+    <ul>
+        <li>start : début de la période de mesures au format ISO soit 2018-09-01T22:00:00Z</li>
+        <li>end : fin de la période mesures au format ISO soit 2018-09-01T23:00:00Z</li>
+        <li>min : puissance minimale qui ne sera pas dépassée par les mesures générées</li>
+        <li>min : puissance maximale qui ne sera pas dépassée par les mesures générées</li>
+        <li>step : pas de mesure en seconde</li>
+    </ul>
+    Un appel pourra ressembler à
+    <hr>
+    <code>http://localhost:8090/measures?start=2018-09-01T22:00:00Z&end=2018-09-02T22:00:00Z&min=500000&max=1000000&step=3600</code>
+    <br>
+    <div class="text-center">
+        <a href="http://localhost:8090/measures?start=2018-09-01T22:00:00Z&end=2018-09-02T22:00:00Z&min=500000&max=1000000&step=3600"
+           class="btn btn-primary text-center">Tester l'API REST</a>
+    </div>
+</div>
+
+<footer class="mastfoot mt-auto bg-light fixed-bottom">
+    <p class="text-center">Dev-Mind © 2018</p>
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+
