@@ -21,6 +21,12 @@ import static java.util.Comparator.comparing;
 @RequestMapping("/measures")
 public class MeasureController {
 
+    @GetMapping("/one")
+    public ResponseEntity<MeasureDTO> computeMeasure(@RequestParam int lastValue,
+                                                     @RequestParam int variance) {
+        return ResponseEntity.ok(new MeasureDTO(Instant.now(), getRandomNumberInts(lastValue - variance, lastValue + variance)));
+    }
+
 
     @GetMapping
     public ResponseEntity<List<MeasureDTO>> computeMeasures(@RequestParam Instant start,

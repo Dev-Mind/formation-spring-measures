@@ -24,14 +24,31 @@
         <li>min : puissance maximale qui ne sera pas dépassée par les mesures générées</li>
         <li>step : pas de mesure en seconde</li>
     </ul>
-    Un appel pourra ressembler à
-    <hr>
-    <code>http://localhost:8090/measures?start=2018-09-01T22:00:00Z&end=2018-09-02T22:00:00Z&min=500000&max=1000000&step=3600</code>
-    <br>
-    <div class="text-center">
-        <a href="http://localhost:8090/measures?start=2018-09-01T22:00:00Z&end=2018-09-02T22:00:00Z&min=500000&max=1000000&step=3600"
-           class="btn btn-primary text-center">Tester l'API REST</a>
+
+    <div>
+        Un appel pour récupérer une liste de mesures entre 2 instants aggrégés sur un pas de temps  pourra ressembler à
+        <hr>
+        <code>http://localhost:8090/measures?start=2018-09-01T22:00:00Z&end=2018-09-02T22:00:00Z&min=500000&max=1000000&step=3600</code>
+        <br>
+        <div class="text-center">
+            <a href="http://localhost:8090/measures?start=2018-09-01T22:00:00Z&end=2018-09-02T22:00:00Z&min=500000&max=1000000&step=3600"
+               class="btn btn-primary text-center">Tester l'API REST</a>
+        </div>
     </div>
+
+
+    <div>
+        Un appel pour générer une mesure à partir d'une valeur et d'une variance pourra ressembler à
+        <hr>
+        <code>http://localhost:8090/measures/one?lastValue=234567&variance=1000</code>
+        <br>
+        <div class="text-center">
+            <a href="http://localhost:8090/measures/one?lastValue=234567&variance=1000"
+               class="btn btn-primary text-center">Tester l'API REST</a>
+        </div>
+    </div>
+
+
 </div>
 
 <footer class="mastfoot mt-auto bg-light fixed-bottom">
