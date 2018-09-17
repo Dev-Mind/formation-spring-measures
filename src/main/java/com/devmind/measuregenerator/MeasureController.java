@@ -24,7 +24,7 @@ public class MeasureController {
     @GetMapping("/one")
     public ResponseEntity<MeasureDTO> computeMeasure(@RequestParam int lastValue,
                                                      @RequestParam int variance) {
-        return ResponseEntity.ok(new MeasureDTO(Instant.now(), getRandomNumberInts(lastValue - variance, lastValue + variance)));
+        return ResponseEntity.ok(new MeasureDTO(Instant.now(), getRandomNumberInts((lastValue - variance) < 0 ? 0 : lastValue - variance, lastValue + variance)));
     }
 
 
@@ -76,7 +76,7 @@ public class MeasureController {
 
     public int getRandomNumberInts(int min, int max) {
         Random random = new Random();
-        return random.ints(min, (max + 1)).findFirst().orElse(0);
+        return random.ints(min, Math.abs(max + 1)).findFirst().orElse(0);
     }
 
     public int getNbPeak(int nbOfSteps) {
